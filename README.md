@@ -156,11 +156,11 @@ ai-productivity-dashboard/
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/shubhammukherjee17/AI-Productivity-Dashboard.git
 cd ai-productivity-dashboard
 
-# Install dependencies with legacy peer deps support
-npm install --legacy-peer-deps
+# Install dependencies 
+npm install 
 
 # Start development server
 npm run dev
