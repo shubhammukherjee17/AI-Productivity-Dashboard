@@ -1,8 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flowstate: AI-Powered Productivity Dashboard
 
-## Getting Started
+**Flowstate** is an advanced productivity dashboard designed to help you optimize your work, manage energy levels, and enter deep work states. Built with Next.js 16 and AI-driven insights, it goes beyond simple task management by aligning your daily activities with your long-term goals and biological rhythm.
 
-First, run the development server:
+## 🚀 Key Features
+
+- **⚡ Smart Dashboard**: A centralized command center giving you a real-time overview of your productivity metrics, active tasks, and daily progress.
+- **🔋 Energy Scheduling**: Intelligently schedule your most demanding tasks during your peak energy hours to maximize efficiency and prevent burnout.
+- **🎯 Focus Mode**: A dedicated, distraction-free environment for deep work sessions, helping you improved concentration and flow.
+- **📈 Momentum Tracking**: Visualize your consistency and build streaks to maintain high motivation levels over time.
+- **🔗 Goal Alignment**: Ensure every task you do contributes to your higher-level objectives, keeping you focused on what truly matters.
+- **📊 Weekly Insights**: comprehensive analytics and trends to help you understand your working patterns and improve week over week.
+- **🧠 AI Explainability**: Transparent insights into your productivity scores, helping you understand _why_ you are (or aren't) productive (powered by `ExplainabilityModal`).
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/), [Lucide React](https://lucide.dev/)
+- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Visualization**: [Recharts](https://recharts.org/)
+- **PWA Support**: `@ducanh2912/next-pwa`
+
+## 🏁 Getting Started
+
+Follow these steps to set up the project locally on your machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/yourusername/flowstate.git
+    cd flowstate
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    # or
+    bun install
+    ```
+
+### Running Locally
+
+Start the development server:
 
 ```bash
 npm run dev
@@ -16,21 +68,33 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create an optimized production build:
 
-## Learn More
+```bash
+npm run build
+# or
+bun run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+The output will be generated in the `.next` folder.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📂 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **`app/`**: Contains the Next.js App Router pages and layouts.
+- **`components/`**: Reusable UI components (Dashboard, Widgets, etc.).
+  - `Dashboard.tsx`: Main dashboard view.
+  - `EnergySchedule.tsx`: Component for managing energy-based scheduling.
+  - `FocusModeDialog.tsx`: Modal for the focus session timer.
+  - `ui/`: Generic UI primitives (Buttons, Cards, etc.).
+- **`lib/`**: Utility functions and shared logic.
+- **`public/`**: Static assets like images and icons.
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is licensed under the MIT License.
