@@ -1,339 +1,134 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 40%, #000000 100%);
-  background-attachment: fixed;
-  color: #ffffff;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  min-height: 100vh;
-  scrollbar-gutter: stable both-edges;
-  overflow-anchor: none;
-}
-
-::selection {
-  background: rgba(37, 99, 235, 0.3);
-  color: #ffffff;
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Custom utility classes */
-.gradient-text {
-  background: linear-gradient(to right, #2563eb, #9333ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-muted {
-  color: #6b7280;
-}
-
-.text-light {
-  color: #9ca3af;
-}
-
-.divider {
-  height: 1px;
-  background-color: #e5e7eb;
-  margin: 1rem 0;
-}
-
-.btn {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  transition: all 0.2s;
-  cursor: pointer;
-  border: none;
-  font-size: inherit;
-}
-
-.btn-primary {
-  background-color: #2563eb;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #1d4ed8;
-}
-
-.btn-secondary {
-  background-color: #e5e7eb;
-  color: #111827;
-}
-
-.btn-secondary:hover {
-  background-color: #d1d5db;
-}
-
-.sidebar-item {
-  width: 100%;
-  text-align: left;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-  color: #374151;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  font-size: inherit;
-}
-
-.sidebar-item:hover {
-  background-color: #f3f4f6;
-}
-
-.sidebar-item.active {
-  background-color: #eff6ff;
-  color: #2563eb;
-  border-left: 4px solid #2563eb;
-  padding-left: calc(1rem - 4px);
-}
-
-.card {
-  background: rgba(31, 41, 55, 0.5);
-  border-radius: 0.5rem;
-  border: 1px solid rgba(75, 85, 99, 0.3);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  transition: all 0.2s;
-}
-
-.card:hover {
-  background: rgba(31, 41, 55, 0.7);
-  border-color: rgba(75, 85, 99, 0.5);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-}
-
-.card-lg {
-  background: rgba(31, 41, 55, 0.5);
-  border-radius: 0.75rem;
-  border: 1px solid rgba(75, 85, 99, 0.3);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s;
-}
-
-.card-lg:hover {
-  background: rgba(31, 41, 55, 0.7);
-  border-color: rgba(75, 85, 99, 0.5);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-}
-
-/* Animations */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+:root {
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.21 0.006 285.885);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.705 0.015 286.067);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.21 0.006 285.885);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+    --background: 260 20% 98%;
+    --foreground: 260 20% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 10% 3.9%;
+    --primary: 262 83% 58%; /* Vibrant Violet */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 290 80% 55%; /* Vibrant Pink/Purple */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 260 10% 96.1%;
+    --muted-foreground: 260 10% 45.1%;
+    --accent: 260 15% 96.1%;
+    --accent-foreground: 260 20% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+    --font-sans: "Outfit", sans-serif;
+  }
+  .dark {
+    --background: 260 20% 3.9%;
+    --foreground: 260 10% 98%;
+    --card: 260 20% 5%;
+    --card-foreground: 260 10% 98%;
+    --popover: 260 20% 5%;
+    --popover-foreground: 260 10% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 290 80% 55%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 260 20% 12%;
+    --muted-foreground: 260 10% 65%;
+    --accent: 260 20% 12%;
+    --accent-foreground: 260 10% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 260 20% 12%;
+    --input: 260 20% 12%;
+    --ring: 262 83% 58%;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-slideIn {
-  animation: slideIn 0.3s ease-out;
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
-}
-
-/* Prevent accidental horizontal overflow from positioned elements */
-html,
-body {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
-
-main {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 767px) {
-  main {
-    margin-left: 0 !important;
-  }
-
-  /* Prevent horizontal scroll on mobile */
+@layer base {
   * {
-    max-width: 100%;
+    @apply border-border;
   }
-
-  /* Ensure timeline and charts don't overflow */
-  .overflow-x-auto {
-    -webkit-overflow-scrolling: touch;
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-/* Desktop sidebar spacing */
-@media (min-width: 768px) {
-  main {
-    min-width: 0;
-    /* Prevent flex item from overflowing */
+/* Custom FlowState Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
-/* Smooth scrolling for horizontal scroll areas */
-.overflow-x-auto {
-  scrollbar-width: thin;
-  scrollbar-color: #374151 #1a1a1a;
-}
-
-.overflow-x-auto::-webkit-scrollbar {
-  height: 6px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-track {
-  background: #1a1a1a;
-}
-
-.overflow-x-auto::-webkit-scrollbar-thumb {
-  background: #374151;
-  border-radius: 3px;
-}
-
-.overflow-x-auto::-webkit-scrollbar-thumb:hover {
-  background: #4b5563;
-}
-
-/* Glass morphism effects */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-sm {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Input styles for dark theme */
-input[type="text"],
-input[type="password"],
-textarea {
-  background: rgba(31, 41, 55, 0.5);
-  border: 1px solid rgba(75, 85, 99, 0.5);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-  outline: none;
-  border-color: rgba(59, 130, 246, 0.5);
-  background: rgba(31, 41, 55, 0.8);
-}
-
-input::placeholder {
-  color: rgba(156, 163, 175, 0.5);
-}
-
-/* Button variants for dark theme */
-.btn-ghost {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-/* Badge styles */
-.badge-danger {
-  background: rgba(239, 68, 68, 0.2);
-  color: rgb(248, 113, 113);
-}
-
-.badge-warning {
-  background: rgba(249, 115, 22, 0.2);
-  color: rgb(251, 146, 60);
-}
-
-.badge-primary {
-  background: rgba(59, 130, 246, 0.2);
-  color: rgb(96, 165, 250);
-}
-
-.badge-secondary {
-  background: rgba(107, 114, 128, 0.2);
-  color: rgb(156, 163, 175);
-}
-
-/* Card styles for dark theme */
-.card-md {
-  background: rgba(31, 41, 55, 0.5);
-  border: 1px solid rgba(75, 85, 99, 0.3);
-  padding: 1rem;
-  border-radius: 0.75rem;
-  transition: all 0.2s;
-}
-
-.card-md:hover {
-  border-color: rgba(75, 85, 99, 0.5);
-  background: rgba(31, 41, 55, 0.7);
-}
-
-.card-sm {
-  background: rgba(31, 41, 55, 0.3);
-  border: 1px solid rgba(75, 85, 99, 0.2);
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-}
-
-/* Disabled state */
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

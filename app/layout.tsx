@@ -1,20 +1,23 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./styles/globals.css";
+import type { Metadata, Viewport } from "next";
+import { Outfit } from "next/font/google";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  title: "ProductivAI - AI Productivity Dashboard",
-  description: "Your personal AI-powered productivity dashboard with smart task management, habit tracking, and AI coaching",
+  title: "Flowstate",
+  description: "AI Powered Productivity Assistant",
+  manifest: "/manifest.json",
+  icons: {
+    apple: "/icon-192x192.png",
+  }
+};
+
+export const viewport: Viewport = {
+  themeColor: "#8b5cf6",
 };
 
 export default function RootLayout({
@@ -25,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${outfit.variable} antialiased`}
       >
         {children}
       </body>
